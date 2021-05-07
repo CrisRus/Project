@@ -10,7 +10,7 @@ public class UserQueries extends DatabaseConnection {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
-    private String name;
+    
 
     public UserQueries() {
         // everytime we call an object of UserQueries a connection is made automatically
