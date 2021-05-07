@@ -10,6 +10,7 @@ public class UserQueries extends DatabaseConnection {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
+    private String name;
 
     public UserQueries() {
         // everytime we call an object of UserQueries a connection is made automatically
@@ -38,6 +39,7 @@ public class UserQueries extends DatabaseConnection {
                     if (resultSet.getString("email").equals(userIn) && resultSet.getString("password").equals(pwIn)) {
                         System.out.println(resultSet.getString("email") + " is email");
                         System.out.println(resultSet.getString("password") + " is password");
+                        System.out.println("testing");
                         isVerified = true;
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Success");
