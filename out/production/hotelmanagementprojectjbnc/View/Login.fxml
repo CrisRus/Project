@@ -20,7 +20,7 @@
             <children>
                 <ImageView fitHeight="200.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../Images/eka.png" />
+                        <Image url="@../Resources/eka.png" />
                     </image>
                 </ImageView>
             </children></HBox>
