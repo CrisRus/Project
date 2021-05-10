@@ -70,6 +70,18 @@ public class User {
     public void setPersonId(String personId) {
         this.personId = personId;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", personId='" + personId + '\'' +
+                '}';
+    }
 }
 
 
