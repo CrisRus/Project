@@ -7,12 +7,14 @@ public class Customer {
     private String lastName;
     private Date dob;
     private int age;
+    private String customerSSN;
 
-    public Customer(String firstName, String lastName, Date dob, int age) {
+    public Customer(String firstName, String lastName, Date dob, int age,String customerSSN) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.age = age;
+        this.customerSSN=customerSSN;
     }
 
 
@@ -47,4 +49,6 @@ public class Customer {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public String getCustomerSSN() { return customerSSN; }
 }
