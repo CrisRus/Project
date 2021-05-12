@@ -1,5 +1,8 @@
 package DatabaseConnection;
 
+import Model.User;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
@@ -7,9 +10,11 @@ import java.util.ArrayList;
 
 public class UserQueries extends DatabaseConnection {
 
+
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
+    public String status="";
     
 
     public UserQueries() {
@@ -36,16 +41,29 @@ public class UserQueries extends DatabaseConnection {
                 System.out.println("userin: " + userIn + " , pwin: " + pwIn);
                 while (resultSet.next()) {
                     //step below helps to index the column
-                    if (resultSet.getString("email").equals(userIn) && resultSet.getString("password").equals(pwIn)) {
+                            if( resultSet.getString("email").equals("admin")
+                            &&  resultSet.getString("password").equals("admin") ) {
                         System.out.println(resultSet.getString("email") + " is email");
                         System.out.println(resultSet.getString("password") + " is password");
-                        System.out.println("testing");
+                        System.out.println("admin login");
                         isVerified = true;
+                        status="admin";
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Success");
-                        alert.setContentText("You have successfully logged in.");
+                        alert.setContentText("You have successfully logged inas an admin");
+                        alert.show();
+                    }else if(resultSet.getString("email").equals(userIn) && resultSet.getString("password").equals(pwIn)){
+                        System.out.println(resultSet.getString("email") + " is email");
+                        System.out.println(resultSet.getString("password") + " is password");
+                        System.out.println("Employee login");
+                        isVerified = true;
+                        status="employee";
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setContentText("You have successfully logged in as an Employee");
                         alert.show();
                     }
+
                 }
 
                 if (isVerified == false) {
@@ -63,9 +81,41 @@ public class UserQueries extends DatabaseConnection {
             return isVerified;
         }
 
+    public void createUser(User user) {
+        System.out.println("Entered createuser");
+
+        try {
+
+        String query = "INSERT INTO `user` (`email`, `firstname`, `password`, `lastname`, `phonenumber` ) VALUES " +
+            "('" + user.getEmail() + "', '" +  user.getFirstname() + "', '" + user.getPassword() + "', '" + user.getLastname() + "', '" +   user.getPhonenumber() + "');";
+            System.out.println(query);
+    statement = connection.createStatement();
+            statement.executeUpdate(query);
+
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setContentText("The User with firstname  "+"`"+ user.getFirstname() +"`" +" and email   " +"`"+ user.getEmail() + "`" +   "has been added" );
+            alert.show();
+            System.out.println("User created: " );
+    } catch(NumberFormatException e){
+
+        }
+
+        catch (Exception e) {
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText("transaction failed");
+        alert.show();
 
 
-    }
+        }
+
+        }
+
+
+
+        }
 
 
 

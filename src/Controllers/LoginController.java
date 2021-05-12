@@ -44,23 +44,36 @@ public class LoginController extends Control  {  // extends control
             try{
              isLoggedIn=UQ.verifyLogin(email1,pw);
                 System.out.println("isLoggedIn: " + isLoggedIn);
-             if(isLoggedIn==true){
+             if(isLoggedIn==true)
+                 if(UQ.status=="admin"){
 
                      Node node = (Node) ae.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxmlfiles/nextScene.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Admin.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
 
 
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("wrong input");
-                    alert.setContentText("password or username incorrect");
-                    alert.show();
-                }
+                } else  if(isLoggedIn==true)
+                    if(UQ.status=="employee"){
+                        Node node = (Node) ae.getSource();
+                        Stage stage = (Stage) node.getScene().getWindow();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/MainScreen.fxml"));
+                        Parent root = loader.load();
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+
+
+                }else{
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("wrong input");
+                        alert.setContentText("password or username incorrect");
+                        alert.show();
+                    }
+
             } catch (NullPointerException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("internet connection");
@@ -78,37 +91,20 @@ public class LoginController extends Control  {  // extends control
     }
 
 
-      /*  public void createUser (User user){
-            System.out.println("Entered createuser");
 
-            try {
-                connect();
-                String sql = "INSERT INTO `users` (`email`, `password`, `firstname`, `lastname`, `address`, `city`, `zip`, `state`, `country`, `isEmployee`) VALUES " +
-                        "('" + user.getEmail() + "', '" + user.getPassword() + "', '" + user.getFirstname() + "', '" + user.getLastname() + "', '" + user.getAddress() + "', " +
-                        "'" + user.getCity() + "', '" + user.getZip() + "', '" + user.getState() + "', '" + user.getCountry() + "', '0');";
-                statement = connection.createStatement();
-                statement.executeUpdate(sql);
 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Success");
-                alert.setContentText("User has been registered, you may now log in.");
-                alert.show();
-                System.out.println("User created: " + user.toString());
+    @FXML
+    private void signup(ActionEvent ae) throws IOException{
+        Node node = (Node) ae.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Signup.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
-            } catch (SQLIntegrityConstraintViolationException e) {
-                System.out.println("SQLIntegrityConstraintViolationException: email already exists in database. ");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Email has already been taken. Please choose a different email for registration.");
-                alert.show();
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-       */
+    }
 
 
 
