@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,22 +9,18 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Admin">
+<StackPane fx:id="stackepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainScreen">
     <children>
         <AnchorPane id="AnchorPane" prefHeight="634.0" prefWidth="833.0" style="-fx-background-image:url(img/person-woman-hotel-laptop.jpg)">
             <children>
-                <Pane fx:id="pane_1" layoutX="347.0" layoutY="45.0" opacity="0.7" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 6px;">
+                <Pane fx:id="pane_1" layoutX="347.0" layoutY="45.0" onMouseClicked="#torooms" opacity="0.7" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 6px;">
                     <children>
-                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="55.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="torooms" fitHeight="90.0" fitWidth="90.0" layoutX="55.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Resources/room.jpg" />
                             </image>
                         </ImageView>
-                        <Label layoutX="71.0" layoutY="166.0" text="Home">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
+                  <Button layoutX="4.0" layoutY="143.0" mnemonicParsing="false" onAction="#torooms" prefHeight="25.0" prefWidth="193.0" text="Button" />
                     </children>
                 </Pane>
                 <Pane fx:id="pane_2" layoutX="89.0" layoutY="108.0" opacity="0.7" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 6px;">

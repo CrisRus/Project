@@ -1,47 +1,53 @@
 package Model;
 
-public class Room {
-    private int bedNum;
-    private String view;
-    private int roomNum;
-    private boolean isAvailable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.value.ObservableValue;
 
-    public Room(int bedNum, String view, int roomNum, boolean isAvailable) {
-        this.bedNum = bedNum;
-        this.view = view;
-        this.roomNum = roomNum;
-        this.isAvailable = isAvailable;
+
+public class Room  {
+    public String roomcode;
+    public String roomtype;
+
+    public String roomphone;
+    public String roomprice;
+    public String roomstatus;
+
+
+
+
+
+    public Room(String roomcode, String roomType, String roomPhone, String roomPrice, String roomStatus) {
+        this.roomcode = roomcode;
+        this.roomtype = roomType;
+        this.roomphone = roomPhone;
+        this.roomprice = roomPrice;
+        this.roomstatus = roomStatus;
     }
-
-    public int getBedNum() {
-        return bedNum;
+    public String getRoomcode(){
+    return roomcode;
     }
-
-    public void setBedNum(int bedNum) {
-        this.bedNum = bedNum;
+    public String getRoomtype(){
+        return roomtype;
     }
-
-    public String getView() {
-        return view;
+    public String getRoomphone(){
+        return roomphone;
     }
-
-    public void setView(String view) {
-        this.view = view;
+    public String getRoomprice(){
+        return roomprice;
     }
-
-    public int getRoomNum() {
-        return roomNum;
-    }
-
-    public void setRoomNum(int roomNum) {
-        this.roomNum = roomNum;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    public String getRoomstatus(){
+        return roomstatus;
     }
 }
+
+
+
+
+
+
+
+
+
+

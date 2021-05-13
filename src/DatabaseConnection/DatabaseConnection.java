@@ -24,6 +24,7 @@ public abstract class DatabaseConnection {
         } catch (Exception e) {
         }
 
+
     }
     public java.sql.Connection getConnection() {
         return connection;
