@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RoomController">
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RoomController">
     <children>
         <AnchorPane id="AnchorPane" prefHeight="730.0" prefWidth="1366.0" style="-fx-background-image:url(img/person-woman-hotel-laptop.jpg)">
             <children>
@@ -18,13 +18,13 @@
                     <children>
                         <Pane layoutX="21.0" layoutY="117.0" prefHeight="133.0" prefWidth="378.0" style="-fx-border-radius: 15; -fx-border-color: #ccc; -fx-border-width: 2 px;">
                             <children>
-                                <JFXTextField fx:id="search_text" focusColor="#09e2a7" labelFloat="true" layoutX="34.0" layoutY="29.0" prefHeight="25.0" prefWidth="313.0" promptText="Search by room number" />
-                                <JFXButton buttonType="RAISED" layoutX="79.0" layoutY="77.0" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Search" textFill="WHITE">
+                                <JFXTextField fx:id="search" focusColor="#09e2a7" labelFloat="true" layoutX="34.0" layoutY="29.0" prefHeight="25.0" prefWidth="313.0" promptText="Search by room number" />
+                                <JFXButton buttonType="RAISED" layoutX="79.0" layoutY="77.0" onAction="#searchbyroomcode" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Search" textFill="WHITE">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </JFXButton>
-                                <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="77.0" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Available" textFill="WHITE">
+                                <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="77.0" onAction="#makeunAvailable" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Available" textFill="WHITE">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -33,28 +33,30 @@
                         </Pane>
                         <Pane layoutX="18.0" layoutY="364.0" prefHeight="133.0" prefWidth="378.0" style="-fx-border-radius: 15; -fx-border-color: #ccc; -fx-border-width: 2 px;">
                             <children>
-                                <JFXButton buttonType="RAISED" layoutX="83.0" layoutY="51.0" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Back" textFill="WHITE">
+                                <JFXButton buttonType="RAISED" layoutX="83.0" layoutY="51.0" onAction="#back" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Back" textFill="WHITE">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </JFXButton>
-                                <JFXButton buttonType="RAISED" layoutX="218.0" layoutY="51.0" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Close" textFill="WHITE">
+                                <JFXButton buttonType="RAISED" layoutX="218.0" layoutY="51.0" onAction="#close" prefHeight="30.0" prefWidth="80.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Close" textFill="WHITE">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </JFXButton>
                             </children>
                         </Pane>
-                        <Label layoutX="68.0" layoutY="64.0" text="You can search about room by room number and&#10;                              make it available">
+                        <Label layoutX="68.0" layoutY="64.0" text="You can search about room by roomcode and&#10;                              make it unavailable if issuedout">
                             <font>
                                 <Font name="System Bold" size="12.0" />
                             </font>
                         </Label>
-                        <Label layoutX="42.0" layoutY="274.0" text="You can search about busy and available  room by click on &#10;                         Busy or Available button&#10;">
+                        <Label layoutX="42.0" layoutY="274.0">
                             <font>
                                 <Font name="System Bold" size="12.0" />
                             </font>
                         </Label>
+                  <Button layoutX="-2.0" layoutY="276.0" mnemonicParsing="false" onAction="#searchavailable" prefHeight="31.0" prefWidth="147.0" text="searchavailable" />
+                  <Button layoutX="267.0" layoutY="276.0" mnemonicParsing="false" onAction="#searchunavailable" prefHeight="31.0" prefWidth="153.0" text="searchunavailable" />
                     </children>
                 </Pane>
             <ListView fx:id="listView" layoutX="438.0" layoutY="2.0" prefHeight="730.0" prefWidth="898.0" />

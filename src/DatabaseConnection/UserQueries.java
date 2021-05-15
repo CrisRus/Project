@@ -6,12 +6,19 @@ import Model.Room;
 import Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserQueries extends DatabaseConnection {
 
@@ -24,7 +31,7 @@ public class UserQueries extends DatabaseConnection {
 
 
 
-    public          UserQueries() {
+    public UserQueries() {
         // everytime we call an object of UserQueries a connection is made automatically
         try {
             this.connection = getConnection();
@@ -118,7 +125,9 @@ public class UserQueries extends DatabaseConnection {
 
     }
 
-    }
+
+
+}
 
 
 

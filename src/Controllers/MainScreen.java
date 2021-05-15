@@ -30,6 +30,17 @@ public class MainScreen implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML public void makereservation (ActionEvent ae )throws IOException {
+
+
+        Node node = (Node) ae.getSource();
+    Stage stage = (Stage) node.getScene().getWindow();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/booking.fxml"));
+    Parent root = loader.load();
+    Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+}
 
 
 }
