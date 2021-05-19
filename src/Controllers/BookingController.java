@@ -1,7 +1,7 @@
 package Controllers;
 
 import DatabaseConnection.UserQueries;
-import com.jfoenix.controls.*;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.print.*;
 import java.io.IOException;
@@ -37,33 +38,33 @@ import java.util.logging.Logger;
 public class BookingController implements Initializable {
     UserQueries UQ;
     @FXML
-    JFXTextField firstname;
+    javafx.scene.control.TextField firstname;
     @FXML
-    JFXTextField lastname;
+    javafx.scene.control.TextField lastname;
 
     @FXML
-    JFXTextField email;
+    javafx.scene.control.TextField email;
 
     @FXML
-    JFXTextField address;
+    javafx.scene.control.TextField address;
 
     @FXML
-    JFXTextField phone;
+    javafx.scene.control.TextField phone;
 
     @FXML
-    JFXTextField roomtype;
+    javafx.scene.control.TextField roomtype;
 
     @FXML
-    JFXTextField roomcode;
+    javafx.scene.control.TextField roomcode;
 
     @FXML
-    JFXDatePicker startdate;
+     javafx.scene.control.DatePicker startdate;
 
     @FXML
-    JFXDatePicker enddate;
+    javafx.scene.control.DatePicker enddate;
 
     @FXML
-    JFXTextField services;
+    javafx.scene.control.TextField services;
     @FXML
     StackPane stackpane;
 
@@ -91,8 +92,9 @@ public class BookingController implements Initializable {
         stage.show();
     }
     @FXML
-    private void close(ActionEvent ae) throws IOException{
-        JFXDialogLayout dialogLayout=new JFXDialogLayout();
+    private void close(ActionEvent ae) throws IOException {
+        /*
+        DialogLayout dialogLayout=new JFXDialogLayout();
         dialogLayout.setHeading(new Text("Close"));
         dialogLayout.setBody(new Text("Do You want to exit !"));
 
@@ -117,6 +119,9 @@ public class BookingController implements Initializable {
 
         dialogLayout.setActions(ok,Cancel);
         dialog.show();
+    }
+
+         */
     }
     @FXML
     public void bookroom(ActionEvent ae) throws SQLException {

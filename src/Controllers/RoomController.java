@@ -2,8 +2,8 @@ package Controllers;
 
 import DatabaseConnection.UserQueries;
 import Model.Room;
-import com.jfoenix.controls.*;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
+
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,16 +15,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -38,7 +36,7 @@ import java.util.logging.Logger;
 public class RoomController implements Initializable {
     UserQueries ub;
     @FXML
-    JFXTextField search;
+     javafx.scene.control.TextField search;
 
 
     @FXML
@@ -96,14 +94,14 @@ public class RoomController implements Initializable {
 
     @FXML
     private void close(ActionEvent event) throws IOException {
-        JFXDialogLayout dialogLayout = new JFXDialogLayout();
+      /*  DialogLayout dialogLayout = new DialogLayout();
         dialogLayout.setHeading(new Text("Close"));
         dialogLayout.setBody(new Text("Do You want to exit !"));
 
-        JFXButton ok = new JFXButton("Ok");
-        JFXButton Cancel = new JFXButton("Cancel");
+        Button ok = new JFXButton("Ok");
+        Button Cancel = new JFXButton("Cancel");
 
-        JFXDialog dialog = new JFXDialog(stackpane, dialogLayout, JFXDialog.DialogTransition.CENTER);
+        Dialog dialog = new Dialog(stackpane, dialogLayout, Dialog.DialogTransition.CENTER);
 
         ok.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -121,6 +119,9 @@ public class RoomController implements Initializable {
 
         dialogLayout.setActions(ok, Cancel);
         dialog.show();
+    }
+
+       */
     }
 
     @FXML
