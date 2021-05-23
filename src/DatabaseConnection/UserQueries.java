@@ -87,7 +87,7 @@ public class UserQueries extends DatabaseConnection {
                 alert.setContentText("Wrong email and/or password.");
                 alert.show();
             }
-            disconnect();
+           // disconnect();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -124,6 +124,48 @@ public class UserQueries extends DatabaseConnection {
         }
 
     }
+    public boolean verifyGuestLogin(String userIn, String pwIn) {
+
+        boolean isVerified = false;
+        try {
+
+            String sql = "SELECT email, password FROM guest WHERE email = '" + userIn + "' AND password = '" + pwIn + "';";
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            System.out.println("userin: " + userIn + " , pwin: " + pwIn);
+            while (resultSet.next()) {
+                //step below helps to index the column
+
+                if (resultSet.getString("email").equals(userIn) && resultSet.getString("password").equals(pwIn)) {
+                    System.out.println(resultSet.getString("email") + " is email");
+                    System.out.println(resultSet.getString("password") + " is password");
+                    System.out.println("Employee login");
+                    isVerified = true;
+                    status = "guest";
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success");
+                    alert.setContentText("You have successfully logged in as a guest");
+                    alert.show();
+                }
+
+            }
+
+            if (isVerified == false) {
+                System.out.println("Wrong email and/or password.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Wrong email and/or password.");
+                alert.show();
+            }
+           // disconnect();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isVerified;
+    }
+
 
 
 

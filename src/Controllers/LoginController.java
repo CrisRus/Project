@@ -89,6 +89,56 @@ public class LoginController extends Control  {  // extends control
             alert.show();
         }
     }
+    @FXML
+    private void signInAsGuest(ActionEvent ae) throws IOException {
+    String email1 = emailText.getText();
+    String pw = passwordText.getText();
+        if (!emailText.getText().isEmpty() &&!passwordText.getText().isEmpty()) {
+
+
+        try{
+            isLoggedIn=UQ.verifyGuestLogin(email1,pw);
+            System.out.println("isLoggedIn: " + isLoggedIn);
+            if(isLoggedIn==true){
+
+
+                    Node node = (Node) ae.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/guest.fxml"));
+                    Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+
+
+
+
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("wrong input");
+                        alert.setContentText("password or username incorrect");
+                        alert.show();
+                    }
+
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("internet connection");
+            alert.setContentText("check internet connection");
+            alert.show();
+        }
+
+    } else {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("wrong input");
+        alert.setContentText("please fill in both fields to continue");
+        alert.show();
+    }
+}
+
+
+
+
 
 
 
