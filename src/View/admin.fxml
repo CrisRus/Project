@@ -13,14 +13,14 @@
     <children>
         <AnchorPane id="AnchorPane" prefHeight="634.0" prefWidth="833.0" style="-fx-background-image:url(img/person-woman-hotel-laptop.jpg)">
             <children>
-                <Pane fx:id="pane_1" layoutX="598.0" layoutY="45.0" onMouseClicked="#torooms" opacity="0.7" prefHeight="157.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 6px;">
+                <Pane fx:id="pane_1" layoutX="598.0" layoutY="45.0" onMouseClicked="#toRooms" opacity="0.7" prefHeight="157.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 6px;">
                     <children>
                         <ImageView fx:id="torooms" fitHeight="138.0" fitWidth="200.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Resources/room.jpg" />
                             </image>
                         </ImageView>
-                  <Button layoutX="-3.0" layoutY="129.0" mnemonicParsing="false" onAction="#torooms" prefHeight="31.0" prefWidth="206.0" text="Rooms" />
+                  <Button layoutX="-3.0" layoutY="129.0" mnemonicParsing="false" onAction="#toRooms" prefHeight="31.0" prefWidth="206.0" text="Rooms" />
                     </children>
                 </Pane>
                 <Pane fx:id="pane_2" layoutX="36.0" layoutY="124.0" opacity="0.7" prefHeight="189.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 6px;">
@@ -34,7 +34,7 @@
                 </Pane>
                 <Pane fx:id="pane_3" layoutX="501.0" layoutY="305.0" opacity="0.7" prefHeight="182.0" prefWidth="193.0" style="-fx-background-color: white; -fx-background-radius: 6px;">
                     <children>
-                  <Button layoutX="1.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="193.0" text="Guests" />
+                  <Button layoutX="1.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" onAction="#toGuests" prefWidth="193.0" text="Guests" />
                         <ImageView fitHeight="158.0" fitWidth="200.0" layoutX="18.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Resources/customerinfo.jpg" />
@@ -47,14 +47,14 @@
                   <Font name="Bookman Old Style" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="374.0" layoutY="177.0" mnemonicParsing="false" onAction="#makereservation" prefHeight="31.0" prefWidth="193.0" text="Reservation" />
-            <ImageView fitHeight="158.0" fitWidth="200.0" layoutX="371.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="138.0" fitWidth="193.0" layoutX="375.0" layoutY="39.0">
+            <Button layoutX="374.0" layoutY="177.0" mnemonicParsing="false" onAction="#makeReservation" prefHeight="31.0" prefWidth="193.0" text="Reservation" />
+            <ImageView fitHeight="158.0" fitWidth="200.0" layoutX="371.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="138.0" fitWidth="193.0" layoutX="374.0" layoutY="34.0">
                <image>
                   <Image url="@../Resources/reservation.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="35.0" layoutY="357.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" text="Log out" />
+            <Button layoutX="35.0" layoutY="357.0" mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="286.0" text="Log out" />
             </children>
         </AnchorPane>
     </children>

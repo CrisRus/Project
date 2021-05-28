@@ -1,6 +1,7 @@
 package Controllers;
 
 import DatabaseConnection.UserQueries;
+import Model.SceneSwitcher;
 import Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +30,14 @@ public class SignupController  implements Initializable {
     private javafx.scene.control.TextField phonenumbertxt;
     UserQueries UQ = new UserQueries();
 
-@FXML
+    private SceneSwitcher sceneSwitcher;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        sceneSwitcher = SceneSwitcher.getInstance();
+    }
+
+    @FXML
     public void register(ActionEvent ae) throws IOException {
 
 
@@ -46,39 +54,16 @@ public class SignupController  implements Initializable {
         try {
             Main.userobject = new User(emailtxt.getText(), firstnametxt.getText(), passwordtxt.getText(), lastnametxt.getText(), phonenumbertxt.getText());
             UQ.createUser(Main.userobject);
-            Node node = (Node) ae.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/login.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-
+            sceneSwitcher.changeScene(ae,"../View/login.fxml" );
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void tologin(ActionEvent ae) throws IOException{
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/login.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-
+    public void tologin(ActionEvent ae) throws IOException {
+        sceneSwitcher.changeScene(ae, "../View/login.fxml");
     }
-
-
-
-
-        @Override
-            public void initialize (URL location, ResourceBundle resources){
-
-            }
-        }
+}
 
 

@@ -2,6 +2,7 @@ package Controllers;
 
 import DatabaseConnection.UserQueries;
 
+import Model.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,12 +57,14 @@ public class BookingController implements Initializable {
     @FXML
     StackPane stackpane;
 
+    private SceneSwitcher sceneSwitcher;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         startdate.setValue(LocalDate.now());
         UQ=new UserQueries();
-
+        sceneSwitcher = SceneSwitcher.getInstance();
 
     }
 
@@ -71,13 +74,7 @@ public class BookingController implements Initializable {
 
 @FXML
     public void backbutton(javafx.event.ActionEvent ae) throws IOException {
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/admin.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        sceneSwitcher.changeScene(ae,"../View/admin.fxml" );
     }
     @FXML
     private void close(ActionEvent ae) throws IOException {

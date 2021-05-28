@@ -1,6 +1,7 @@
 package Controllers;
 
 import DatabaseConnection.UserQueries;
+import Model.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,59 +17,74 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController extends Control  {  // extends control
+public class LoginController extends Control {  // extends control
 
     @FXML
     private PasswordField passwordText;
     @FXML
     private TextField emailText;
-    Boolean isLoggedIn=false;
-    UserQueries UQ=new UserQueries();
+    Boolean isLoggedIn = false;
+    private UserQueries UQ = new UserQueries();
+
+    private SceneSwitcher sceneSwitcher;
+
     @Override
-   public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        sceneSwitcher = SceneSwitcher.getInstance();
     }
-
 
     @FXML
     private void signInButton(ActionEvent ae) throws IOException {
         String email1 = emailText.getText();
         String pw = passwordText.getText();
-        if (!emailText.getText().isEmpty() &&!passwordText.getText().isEmpty()) {
-
-
-            try{
-             isLoggedIn=UQ.verifyLogin(email1,pw);
+        if (!emailText.getText().isEmpty() && !passwordText.getText().isEmpty()) {
+            try {
+                isLoggedIn = UQ.verifyLogin(email1, pw);
                 System.out.println("isLoggedIn: " + isLoggedIn);
-             if(isLoggedIn==true)
-                 if(UQ.status=="admin"){
-
-                     Node node = (Node) ae.getSource();
-                    Stage stage = (Stage) node.getScene().getWindow();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Admin.fxml"));
-                    Parent root = loader.load();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-
-
-                } else  if(isLoggedIn==true)
-                    if(UQ.status=="employee"){
-                        Node node = (Node) ae.getSource();
-                        Stage stage = (Stage) node.getScene().getWindow();
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/admin.fxml"));
-                        Parent root = loader.load();
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-
-
-                }else{
+                if (isLoggedIn) {
+                    if (UQ.status.equalsIgnoreCase("admin")|| UQ.status.equalsIgnoreCase("employee")) {
+                        sceneSwitcher.changeScene(ae, "../View/admin.fxml");
+                    } else {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("wrong input");
                         alert.setContentText("password or username incorrect");
                         alert.show();
                     }
+                }
+            } catch (NullPointerException e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("internet connection");
+                alert.setContentText("check internet connection");
+                alert.show();
+                e.printStackTrace();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("wrong input");
+            alert.setContentText("please fill in both fields to continue");
+            alert.show();
+        }
+    }
+
+    @FXML
+    private void signInAsGuest(ActionEvent ae) throws IOException {
+        String email1 = emailText.getText();
+        String pw = passwordText.getText();
+        if (!emailText.getText().isEmpty() && !passwordText.getText().isEmpty()) {
+
+
+            try {
+                isLoggedIn = UQ.verifyGuestLogin(email1, pw);
+                System.out.println("isLoggedIn: " + isLoggedIn);
+                if (isLoggedIn) {
+
+                    sceneSwitcher.changeScene(ae,"../View/guest.fxml" );
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("wrong input");
+                    alert.setContentText("password or username incorrect");
+                    alert.show();
+                }
 
             } catch (NullPointerException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -85,73 +101,12 @@ public class LoginController extends Control  {  // extends control
             alert.show();
         }
     }
-    @FXML
-    private void signInAsGuest(ActionEvent ae) throws IOException {
-    String email1 = emailText.getText();
-    String pw = passwordText.getText();
-        if (!emailText.getText().isEmpty() &&!passwordText.getText().isEmpty()) {
-
-
-        try{
-            isLoggedIn=UQ.verifyGuestLogin(email1,pw);
-            System.out.println("isLoggedIn: " + isLoggedIn);
-            if(isLoggedIn==true){
-
-
-                    Node node = (Node) ae.getSource();
-                    Stage stage = (Stage) node.getScene().getWindow();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/guest.fxml"));
-                    Parent root = loader.load();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-
-
-
-
-                    }else{
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("wrong input");
-                        alert.setContentText("password or username incorrect");
-                        alert.show();
-                    }
-
-        } catch (NullPointerException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("internet connection");
-            alert.setContentText("check internet connection");
-            alert.show();
-        }
-
-    } else {
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("wrong input");
-        alert.setContentText("please fill in both fields to continue");
-        alert.show();
-    }
-}
-
-
-
-
-
-
 
 
     @FXML
-    private void signup(ActionEvent ae) throws IOException{
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/signUp.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-
+    private void signup(ActionEvent ae){
+        sceneSwitcher.changeScene(ae,"../View/signUp.fxml" );
     }
-
 
 
 }

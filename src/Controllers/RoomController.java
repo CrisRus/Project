@@ -4,6 +4,7 @@ import DatabaseConnection.UserQueries;
 import Model.Room;
 
 
+import Model.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class RoomController implements Initializable {
     UserQueries ub;
     @FXML
      javafx.scene.control.TextField search;
+    private SceneSwitcher sceneSwitcher;
 
 
     @FXML
@@ -38,7 +40,7 @@ public class RoomController implements Initializable {
         ub = new UserQueries();
         String entrysql = "SELECT * FROM room";
         fillrooms(entrysql);
-
+        sceneSwitcher = SceneSwitcher.getInstance();
 
     }
 
@@ -72,13 +74,7 @@ public class RoomController implements Initializable {
 
     @FXML
     public void back(javafx.event.ActionEvent ae) throws IOException {
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/login.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        sceneSwitcher.changeScene(ae,"../View/admin.fxml" );
     }
 
     @FXML
