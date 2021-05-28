@@ -44,7 +44,7 @@ public class UserQueries extends DatabaseConnection {
     }
 
     public boolean verifyLogin(String userIn, String pwIn) {
-        System.out.println("Entered verifylogin.");
+        System.out.println("Entered verify login.");
         boolean isVerified = false;
         try {
             //connect();
@@ -96,7 +96,7 @@ public class UserQueries extends DatabaseConnection {
     }
 
     public void createUser(User user) {
-        System.out.println("Entered createuser");
+        System.out.println("Entered create user");
 
         try {
 
@@ -108,7 +108,7 @@ public class UserQueries extends DatabaseConnection {
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
-            alert.setContentText("The User with firstname  " + "`" + user.getFirstname() + "`" + " and email   " + "`" + user.getEmail() + "`" + "has been added");
+            alert.setContentText("The User with first name  " + "`" + user.getFirstname() + "`" + " and email   " + "`" + user.getEmail() + "`" + "has been added");
             alert.show();
             System.out.println("User created: ");
         } catch (NumberFormatException e) {

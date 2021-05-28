@@ -11,14 +11,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class LoginController extends Control  {  // extends control
 
@@ -60,7 +56,7 @@ public class LoginController extends Control  {  // extends control
                     if(UQ.status=="employee"){
                         Node node = (Node) ae.getSource();
                         Stage stage = (Stage) node.getScene().getWindow();
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/MainScreen.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/admin.fxml"));
                         Parent root = loader.load();
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
@@ -147,7 +143,7 @@ public class LoginController extends Control  {  // extends control
     private void signup(ActionEvent ae) throws IOException{
         Node node = (Node) ae.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Signup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/signUp.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);

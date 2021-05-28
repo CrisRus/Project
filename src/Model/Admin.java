@@ -3,8 +3,8 @@ package Model;
 public class Admin {
     private String email;
     private String password;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String phoneNumber;
     private String hotelId;
     private String employeeId;
@@ -12,8 +12,8 @@ public class Admin {
     public Admin(String email, String password, String firstname, String lastname, String phoneNumber, String hotelId, String employeeId) {
         this.email = email;
         this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstname;
+        this.lastName = lastname;
         this.phoneNumber = phoneNumber;
         this.hotelId = hotelId;
         this.employeeId = employeeId;
@@ -27,12 +27,12 @@ public class Admin {
         return password;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getPhoneNumber() {
@@ -56,12 +56,12 @@ public class Admin {
         this.password = password;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
     public void setPhoneNumber(String phoneNumber) {

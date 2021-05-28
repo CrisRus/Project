@@ -9,5 +9,6 @@ public class GuestController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
     }
 }

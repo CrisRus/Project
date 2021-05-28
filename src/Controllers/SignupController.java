@@ -48,7 +48,7 @@ public class SignupController  implements Initializable {
             UQ.createUser(Main.userobject);
             Node node = (Node) ae.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/login.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -63,7 +63,7 @@ public class SignupController  implements Initializable {
     public void tologin(ActionEvent ae) throws IOException{
         Node node = (Node) ae.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/login.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
