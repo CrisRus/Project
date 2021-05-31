@@ -39,7 +39,7 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Label layoutX="68.0" layoutY="64.0" text="Pease search Guest by Name">
+                  <Label layoutX="68.0" layoutY="64.0" text="Please search Guest by Name">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
