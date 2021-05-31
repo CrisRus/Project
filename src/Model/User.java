@@ -3,18 +3,18 @@ package Model;
 public class User {
     private String email;
     private String password;
-    private String firstname;
-    private String lastname;
-    private String phonenumber;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
 
 
 
-    public User(String email,String firstname, String password,  String lastname, String phonenumber) {
+    public User(String email,String firstName, String password,  String lastName, String phoneNumber) {
         this.email = email;
         this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phonenumber=phonenumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber=phoneNumber;
 
     }
 
@@ -35,17 +35,17 @@ public class User {
 
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
 
@@ -55,9 +55,9 @@ public class User {
         return "User{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", phonenumber='" + phonenumber + '\'' +
+                ", firstname='" + firstName + '\'' +
+                ", lastname='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                  +
                 '}';
     }

@@ -6,38 +6,38 @@ import javafx.beans.value.ObservableValue;
 
 
 public class Room  {
-    public String roomcode;
-    public String roomtype;
+    public String roomCode;
+    public String roomType;
 
-    public String roomphone;
-    public String roomprice;
-    public String roomstatus;
-
-
+    public String roomPhone;
+    public String roomPrice;
+    public String roomStatus;
 
 
 
-    public Room(String roomcode, String roomType, String roomPhone, String roomPrice, String roomStatus) {
-        this.roomcode = roomcode;
-        this.roomtype = roomType;
-        this.roomphone = roomPhone;
-        this.roomprice = roomPrice;
-        this.roomstatus = roomStatus;
+
+
+    public Room(String roomCode, String roomType, String roomPhone, String roomPrice, String roomStatus) {
+        this.roomCode = roomCode;
+        this.roomType = roomType;
+        this.roomPhone = roomPhone;
+        this.roomPhone = roomPrice;
+        this.roomStatus = roomStatus;
     }
-    public String getRoomcode(){
-    return roomcode;
+    public String getRoomCode(){
+    return roomCode;
     }
-    public String getRoomtype(){
-        return roomtype;
+    public String getRoomType(){
+        return roomType;
     }
-    public String getRoomphone(){
-        return roomphone;
+    public String getRoomPhone(){
+        return roomPhone;
     }
-    public String getRoomprice(){
-        return roomprice;
+    public String getRoomPrice(){
+        return roomPrice;
     }
-    public String getRoomstatus(){
-        return roomstatus;
+    public String getRoomStatus(){
+        return roomStatus;
     }
 }
 
