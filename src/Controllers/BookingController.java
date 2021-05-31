@@ -27,9 +27,9 @@ import java.util.ResourceBundle;
 public class BookingController implements Initializable {
     UserQueries UQ;
     @FXML
-    javafx.scene.control.TextField firstname;
+    javafx.scene.control.TextField firstName;
     @FXML
-    javafx.scene.control.TextField lastname;
+    javafx.scene.control.TextField lastName;
 
     @FXML
     javafx.scene.control.TextField email;
@@ -41,16 +41,16 @@ public class BookingController implements Initializable {
     javafx.scene.control.TextField phone;
 
     @FXML
-    javafx.scene.control.TextField roomtype;
+    javafx.scene.control.TextField roomType;
 
     @FXML
-    javafx.scene.control.TextField roomcode;
+    javafx.scene.control.TextField roomCode;
 
     @FXML
-     javafx.scene.control.DatePicker startdate;
+     javafx.scene.control.DatePicker startDate;
 
     @FXML
-    javafx.scene.control.DatePicker enddate;
+    javafx.scene.control.DatePicker endDate;
 
     @FXML
     javafx.scene.control.TextField services;
@@ -62,7 +62,7 @@ public class BookingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        startdate.setValue(LocalDate.now());
+        startDate.setValue(LocalDate.now());
         UQ=new UserQueries();
         sceneSwitcher = SceneSwitcher.getInstance();
 
@@ -73,7 +73,7 @@ public class BookingController implements Initializable {
 
 
 @FXML
-    public void backbutton(javafx.event.ActionEvent ae) throws IOException {
+    public void backButton(javafx.event.ActionEvent ae) throws IOException {
         sceneSwitcher.changeScene(ae,"../View/admin.fxml" );
     }
     @FXML
@@ -109,13 +109,13 @@ public class BookingController implements Initializable {
          */
     }
     @FXML
-    public void bookroom(ActionEvent ae) throws SQLException {
-        if(firstname.getText().isEmpty() || lastname.getText().isEmpty() || email.getText().isEmpty() || address.getText().isEmpty() ||
-        phone.getText().isEmpty() || roomtype.getText().isEmpty() || roomcode.getText().isEmpty() ||
+    public void bookRoom(ActionEvent ae) throws SQLException {
+        if(firstName.getText().isEmpty() || lastName.getText().isEmpty() || email.getText().isEmpty() || address.getText().isEmpty() ||
+        phone.getText().isEmpty() || roomType.getText().isEmpty() || roomCode.getText().isEmpty() ||
         services.getText().isEmpty()  ) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("sme fields are empty");
-            alert.setContentText("please fill in all fields and try again");
+            alert.setTitle("Some fields are empty");
+            alert.setContentText("Please fill in all fields and try again");
             alert.show();
 
         }
@@ -123,21 +123,21 @@ public class BookingController implements Initializable {
         else {
 
                 int result = 0;
-                String sql = "INSERT INTO cusbooking (firstname,lastname,email,address,phone,roomtype,roomcode,startdate,enddate,services) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO guestBooking (firstName,lastName,email,address,phone,roomType,roomCode,startDate,endDate,services) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 
 
 
             PreparedStatement ps = UQ.connection.prepareStatement(sql);
-                ps.setString(1, firstname.getText().toString());
-                ps.setString(2, lastname.getText().toString());
+                ps.setString(1, firstName.getText().toString());
+                ps.setString(2, lastName.getText().toString());
                 ps.setString(3, email.getText().toString());
                 ps.setString(4, address.getText().toString());
                 ps.setString(5, phone.getText().toString());
-                ps.setString(6, roomtype.getText().toString());
-                ps.setString(7, roomcode.getText().toString());
-                ps.setString(8, startdate.getValue().toString());
-                ps.setString(9, enddate.getValue().toString());
+                ps.setString(6, roomType.getText().toString());
+                ps.setString(7, roomCode.getText().toString());
+                ps.setString(8, startDate.getValue().toString());
+                ps.setString(9, endDate.getValue().toString());
                 ps.setString(10, services.getText().toString());
 
                 result = ps.executeUpdate();
@@ -145,27 +145,27 @@ public class BookingController implements Initializable {
 
                 if (result > 0) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("succesful booking");
-                    alert.setContentText("booking added succesfully");
+                    alert.setTitle("Booking Successful");
+                    alert.setContentText("Booking added succesfully");
                     alert.show();
-                    updateroomstatus();
+                    updateRoomStatus();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("unsuccesful booking");
-                    alert.setContentText("booking not added succesfully");
+                    alert.setTitle("Booking unsuccessful");
+                    alert.setContentText("Booking is not added succesfully");
                     alert.show();
 
                 }
             }
         }
 
-        private void updateroomstatus() {
-            String text=roomcode.getText().toString().trim();
-            String sql="UPDATE room SET roomStatus=? WHERE roomcode=?";
+        private void updateRoomStatus() {
+            String text=roomCode.getText().toString().trim();
+            String sql="UPDATE room SET roomStatus=? WHERE roomCode=?";
 
             try {
                 PreparedStatement ps=(PreparedStatement)UQ.connection.prepareStatement(sql);
-                ps.setString(1, "unavailable");
+                ps.setString(1, "Unavailable");
                 ps.setString(2, text);
 
                 ps.executeUpdate();
@@ -234,10 +234,10 @@ public class BookingController implements Initializable {
                     int headerRectHeight=15;
                     int headerRectHeighta=40;
 
-                    String  name=firstname.getText();
-                    String phonenumber=phone.getText();
+                    String  name=firstName.getText();
+                    String phoneNumber=phone.getText();
                     String address1=address.getText();
-                    String roomtype1=roomtype.getText();
+                    String roomType1=roomType.getText();
 
                     String status="paid";
 
@@ -252,8 +252,8 @@ public class BookingController implements Initializable {
                     g2d.drawString("-------------------------------------",10,y);y+=headerRectHeight;
                     g2d.drawString("  Name                    " +name+"  ",10,y);y+=yShift;
                     g2d.drawString("  Address                 " +address1+"  ",10,y);y+=yShift;
-                    g2d.drawString("  phonenumber       " +phonenumber+"  ",10,y);y+=yShift;
-                    g2d.drawString("  roomtype       " +roomtype1+"  ",10,y);y+=yShift;
+                    g2d.drawString("  PhoneNumber       " +phoneNumber+"  ",10,y);y+=yShift;
+                    g2d.drawString("  roomType       " +roomType1+"  ",10,y);y+=yShift;
                     g2d.drawString("  Payment                 " +status+"  ",10,y);y+=yShift;
 
 
