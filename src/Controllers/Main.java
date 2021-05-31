@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.Guest;
 import Model.Room;
 import Model.User;
 import javafx.application.Application;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     public static User userobject;
     public static Room roomobject;
+    public static Guest guestobject;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
