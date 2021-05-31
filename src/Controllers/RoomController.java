@@ -38,13 +38,13 @@ public class RoomController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         ub = new UserQueries();
-        String entrysql = "SELECT * FROM room";
-        fillrooms(entrysql);
+        String entrySql = "SELECT * FROM room";
+        fillRooms(entrySql);
         sceneSwitcher = SceneSwitcher.getInstance();
 
     }
 
-    public void fillrooms(String sql) {
+    public void fillRooms(String sql) {
         listView.getItems().clear();
 
 
@@ -56,14 +56,14 @@ public class RoomController implements Initializable {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                Main.roomobject = new Room(rs.getString("roomcode"), rs.getString("roomtype"),
-                        rs.getString("roomphone"), rs.getString("roomprice"), rs.getString("roomstatus"));
-                listView.getItems().addAll(Main.roomobject.getRoomcode() +
+                Main.roomobject = new Room(rs.getString("roomCode"), rs.getString("roomType"),
+                        rs.getString("roomPhone"), rs.getString("roomPrice"), rs.getString("roomStatus"));
+                listView.getItems().addAll(Main.roomobject.getRoomCode() +
                         "                                -             " +
-                        Main.roomobject.getRoomtype() + "                                     -  " +
-                        Main.roomobject.getRoomphone() +
-                        "                         -  " + Main.roomobject.getRoomprice() +
-                        "                         -  " + Main.roomobject.getRoomstatus() + "                                   -  ");
+                        Main.roomobject.getRoomType() + "                                     -  " +
+                        Main.roomobject.getRoomPhone() +
+                        "                         -  " + Main.roomobject.getRoomPrice() +
+                        "                         -  " + Main.roomobject.getRoomStatus() + "                                   -  ");
 
 
             }
@@ -110,7 +110,7 @@ public class RoomController implements Initializable {
     }
 
     @FXML
-    private void searchbyroomcode(ActionEvent ae) {
+    private void searchByRoomCode(ActionEvent ae) {
         if (search.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("please enter the room code");
@@ -119,7 +119,7 @@ public class RoomController implements Initializable {
         } else {
 
             try {
-                fillrooms("SELECT * FROM room WHERE roomcode ='" + search.getText().toString().trim() + "'");
+                fillRooms("SELECT * FROM room WHERE roomCode ='" + search.getText().toString().trim() + "'");
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("please enter a valid room code");
@@ -131,11 +131,11 @@ public class RoomController implements Initializable {
 
     }
     @FXML
-    private void makeunAvailable(ActionEvent ae) {
+    private void makeUnAvailable(ActionEvent ae) {
 
         String text=search.getText().toString().trim();
         int res=0;
-        String sql="UPDATE room SET roomstatus=? WHERE roomcode=?";
+        String sql="UPDATE room SET roomStatus=? WHERE roomCode=?";
         try {
             PreparedStatement ps=(PreparedStatement)ub.connection.prepareStatement(sql);
             ps.setString(1, "unavailable");
@@ -155,7 +155,7 @@ public class RoomController implements Initializable {
             alert.setHeaderText("Information Dialog");
             alert.setContentText("Record updated successfully!");
             alert.showAndWait();
-            fillrooms("SELECT * FROM `room` WHERE 1");
+            fillRooms("SELECT * FROM `room` WHERE 1");
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Data update");
@@ -167,12 +167,12 @@ public class RoomController implements Initializable {
     @FXML
     private void searchavailable(ActionEvent event) {
 
-        fillrooms("SELECT * FROM room WHERE roomStatus = 'available' ");
+        fillRooms("SELECT * FROM room WHERE roomStatus = 'available' ");
     }
     @FXML
     private void searchunavailable(ActionEvent event) {
 
-        fillrooms("SELECT * FROM room WHERE roomStatus = 'unavailable' ");
+        fillRooms("SELECT * FROM room WHERE roomStatus = 'unavailable' ");
     }
 
 

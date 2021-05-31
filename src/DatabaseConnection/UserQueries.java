@@ -80,8 +80,8 @@ public class UserQueries extends DatabaseConnection {
 
         try {
 
-            String query = "INSERT INTO `user` (`email`, `firstname`, `password`, `lastname`, `phonenumber` ) VALUES " +
-                    "('" + user.getEmail() + "', '" + user.getFirstname() + "', '" + user.getPassword() + "', '" + user.getLastname() + "', '" + user.getPhonenumber() + "');";
+            String query = "INSERT INTO `user` (`email`, `firstName`, `password`, `lastName`, `phoneNumber` ) VALUES " +
+                    "('" + user.getEmail() + "', '" + user.getFirstname() + "', '" + user.getPassword() + "', '" + user.getLastname() + "', '" + user.getPhoneNumber() + "');";
             System.out.println(query);
             statement = connection.createStatement();
             statement.executeUpdate(query);
@@ -97,7 +97,7 @@ public class UserQueries extends DatabaseConnection {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setContentText("transaction failed");
+            alert.setContentText("Transaction failed");
             alert.show();
 
 
