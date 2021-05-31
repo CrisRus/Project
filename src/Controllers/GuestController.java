@@ -57,7 +57,7 @@ public class GuestController implements Initializable {
             //                 String startDate, String endDate, String services
             while (rs.next()) {
 
-                Main.guestobject = new Guest(rs.getString("firstName"), rs.getString("lastName"),
+                Main.guestobject = new Guest(rs.getString("Name"), rs.getString("lastName"),
                         rs.getString("email"), rs.getString("address"), rs.getString("phone")
                         , rs.getString("roomType"), rs.getString("roomCode"), rs.getString("startDate")
                         ,  rs.getString("endDate")
@@ -148,11 +148,11 @@ public class GuestController implements Initializable {
 
         fillGuests("SELECT * FROM Guest WHERE ");
     }
-    @FXML
-    private void unavailable(ActionEvent event) {
+   // @FXML
+    /*private void unavailable(ActionEvent event) {
 
         fillGuests("SELECT * FROM Guest ");
-    }
+    }*/
 
 
 }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RoomController">
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RoomController">
     <children>
         <AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="1366.0" style="-fx-background-image:url(img/person-woman-hotel-laptop.jpg)">
             <children>
@@ -12,13 +17,13 @@
                     <children>
                         <Pane layoutX="21.0" layoutY="117.0" prefHeight="133.0" prefWidth="378.0" style="-fx-border-radius: 15; -fx-background-color: LightGreen; -fx-border-width: 2 px;">
                             <children>
-                                <TextField fx:id="search" layoutX="34.0" layoutY="29.0" prefHeight="25.0" prefWidth="313.0" promptText="Search by room number" />
-                                <Button layoutX="79.0" layoutY="77.0" onAction="#searchbyroomcode" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Search" textFill="#343030">
+                                <TextField fx:id="search" layoutX="34.0" layoutY="29.0" prefHeight="25.0" prefWidth="313.0" promptText="Search by Name" />
+                                <Button layoutX="79.0" layoutY="77.0" onAction="#searchByRoomCode" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Search" textFill="#343030">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="227.0" layoutY="77.0" onAction="#makeunAvailable" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Available" textFill="#2e2b2b">
+                                <Button layoutX="227.0" layoutY="77.0" onAction="#makeUnAvailable" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Available" textFill="#2e2b2b">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -39,7 +44,7 @@
                                 </Button>
                             </children>
                         </Pane>
-                        <Label layoutX="68.0" layoutY="64.0" text="Pease search room by roomCode ">
+                        <Label layoutX="68.0" layoutY="64.0" text="Pease search Customer by Email ">
                             <font>
                                 <Font name="Arial" size="18.0" />
                             </font>
@@ -54,11 +59,11 @@
                     </children>
                 </Pane>
             <ListView fx:id="listView" layoutX="436.0" prefHeight="509.0" prefWidth="731.0" style="-fx-background-color: LightGreen;" />
-            <Button layoutX="438.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="roomcode" />
-            <Button layoutX="589.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="roomtype" />
-            <Button layoutX="721.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="roomphone" />
-            <Button layoutX="994.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="roomstatus" />
-            <Button layoutX="863.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="roomprice" />
+            <Button layoutX="438.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="roomCode" />
+            <Button layoutX="589.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="roomType" />
+            <Button layoutX="721.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="roomPhone" />
+            <Button layoutX="994.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="roomStatus" />
+            <Button layoutX="863.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="roomPrice" />
             </children>
         </AnchorPane>
     </children>
