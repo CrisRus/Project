@@ -4,19 +4,17 @@ import DatabaseConnection.UserQueries;
 import Model.Guest;
 
 import Model.SceneSwitcher;
-import javafx.beans.Observable;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +28,10 @@ public class GuestController implements Initializable {
     @FXML
     javafx.scene.control.TextField search;
     private SceneSwitcher sceneSwitcher;
+    @FXML
+    public void toGuests(ActionEvent ae) {
+        sceneSwitcher.changeScene(ae, "../View/guest.fxml");
+    }
 
 
     @FXML
@@ -159,7 +161,10 @@ public class GuestController implements Initializable {
 
         fillGuests("SELECT * FROM Guest WHERE ");
     }
-   // @FXML
+
+    public void Select(ActionEvent actionEvent) {
+    }
+    // @FXML
     /*private void unavailable(ActionEvent event) {
 
         fillGuests("SELECT * FROM Guest ");

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="605.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GuestInfoController">
+<AnchorPane prefHeight="605.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GuestController">
    <children>
       <AnchorPane layoutX="3.0" layoutY="57.0" prefHeight="482.0" prefWidth="457.0" style="-fx-background-color: Aquamarine;">
          <children>
@@ -56,23 +56,24 @@
                   <TextField layoutX="22.0" layoutY="22.0" prefHeight="43.0" prefWidth="351.0" promptText="Name" />
                   <TextField layoutX="22.0" layoutY="101.0" prefHeight="43.0" prefWidth="351.0" promptText="Phone" />
                   <TextField layoutX="22.0" layoutY="185.0" prefHeight="43.0" prefWidth="351.0" promptText="Email" />
-                  <Button layoutX="22.0" layoutY="273.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="80.0" text="Save">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="138.0" layoutY="273.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" text="Delete">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="276.0" layoutY="273.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="95.0" text="Cancel">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
+                  <TextField layoutX="22.0" layoutY="277.0" prefHeight="43.0" prefWidth="351.0" promptText="Address" />
                </children>
             </Pane>
+            <Button layoutX="54.0" layoutY="402.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="80.0" text="Save">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="174.0" layoutY="402.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" text="Delete">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="308.0" layoutY="402.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="95.0" text="Cancel">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
       <Label layoutX="3.0" layoutY="-2.0" prefHeight="60.0" prefWidth="910.0" style="-fx-background-color: LightGreen;" text="                                                                       WELCOME TO EKA HOTEL " textFill="#ea6ab1" wrapText="true">
          <font>

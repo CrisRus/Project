@@ -1,78 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GuestController">
+<AnchorPane prefHeight="605.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GuestController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="1366.0" style="-fx-background-image:url(img/person-woman-hotel-laptop.jpg)">
+      <AnchorPane layoutX="3.0" layoutY="57.0" prefHeight="482.0" prefWidth="457.0" style="-fx-background-color: Aquamarine;">
          <children>
-            <Pane layoutX="29.0" layoutY="22.0" opacity="0.7" prefHeight="700.0" prefWidth="421.0" style="-fx-background-color: LightCyan; -fx-background-radius: 6 px;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="930.0" AnchorPane.topAnchor="15.0">
-               <children>
-                  <Pane layoutX="21.0" layoutY="117.0" prefHeight="133.0" prefWidth="378.0" style="-fx-border-radius: 15; -fx-background-color: LightGreen; -fx-border-width: 2 px;">
-                     <children>
-                        <TextField fx:id="search" layoutX="34.0" layoutY="29.0" prefHeight="25.0" prefWidth="313.0" promptText="Search by Guest Name" />
-                        <Button layoutX="79.0" layoutY="77.0" onAction="#searchByGuestName" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Search" textFill="#343030">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="227.0" layoutY="77.0" onAction="#makeUnAvailable" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Available" textFill="#2e2b2b">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="18.0" layoutY="364.0" prefHeight="133.0" prefWidth="378.0" style="-fx-border-radius: 15; -fx-background-color: LightGreen; -fx-border-width: 2 px;">
-                     <children>
-                        <Button layoutX="83.0" layoutY="51.0" onAction="#back" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Back" textFill="#2c2828">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="218.0" layoutY="51.0" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white;" text="Close" textFill="#211f1f">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <Label layoutX="68.0" layoutY="64.0" text="Please search Guest by Name">
-                     <font>
-                        <Font name="Arial" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="42.0" layoutY="274.0">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <ListView fx:id="listView" layoutX="436.0" prefHeight="509.0" prefWidth="731.0" style="-fx-background-color: LightGreen;" />
-            <Pane layoutX="453.0" layoutY="8.0" prefHeight="494.0" prefWidth="696.0">
-               <children>
-                  <Label layoutX="16.0" layoutY="65.0" prefHeight="17.0" prefWidth="97.0" text="Name" />
-                  <TextField layoutX="291.0" layoutY="61.0" prefHeight="25.0" prefWidth="363.0" />
-                  <TextField layoutX="291.0" layoutY="144.0" prefHeight="25.0" prefWidth="363.0" />
-                  <TextField layoutX="291.0" layoutY="228.0" prefHeight="25.0" prefWidth="363.0" />
-                  <TextField layoutX="291.0" layoutY="299.0" prefHeight="25.0" prefWidth="363.0" />
-                  <Label layoutX="16.0" layoutY="148.0" prefHeight="17.0" prefWidth="106.0" text="Phone" />
-                  <Label layoutX="16.0" layoutY="232.0" prefHeight="17.0" prefWidth="106.0" text="Email" />
-                  <Label layoutX="13.0" layoutY="303.0" prefHeight="17.0" prefWidth="112.0" text="Address" />
-                  <DatePicker layoutX="291.0" layoutY="362.0" />
-                  <DatePicker layoutX="291.0" layoutY="417.0" />
-                  <Label layoutX="13.0" layoutY="366.0" prefHeight="17.0" prefWidth="112.0" text="Check-In" />
-                  <Label layoutX="16.0" layoutY="421.0" prefHeight="17.0" prefWidth="73.0" text="Check-Out" />
-                  <Label layoutX="189.0" prefHeight="17.0" prefWidth="266.0" text="                           Guest Information" textAlignment="CENTER">
-                     <font>
-                        <Font name="Arial Bold" size="14.0" />
-                     </font>
-                  </Label>
-               </children></Pane>
+            <Label layoutX="101.0" layoutY="6.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: white; -fx-border-width: 2;" text="               Room Information" />
+            <Label layoutX="24.0" layoutY="75.0" text="Room No">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="26.0" layoutY="125.0" text="Room Type">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="26.0" layoutY="174.0" text="Room Capacity">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="26.0" layoutY="226.0" text="Room Price">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <ComboBox accessibleRole="LIST_ITEM" layoutX="216.0" layoutY="121.0" onAction="#Select" prefHeight="26.0" prefWidth="221.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ComboBox>
+            <TextField layoutX="216.0" layoutY="71.0" prefHeight="26.0" prefWidth="222.0" />
+            <TextField layoutX="215.0" layoutY="170.0" prefHeight="26.0" prefWidth="222.0" />
+            <TextField layoutX="216.0" layoutY="222.0" prefHeight="26.0" prefWidth="222.0" />
+            <DatePicker layoutX="216.0" layoutY="286.0" />
+            <DatePicker layoutX="216.0" layoutY="346.0" />
+            <Label layoutX="26.0" layoutY="290.0" text="Check-In">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="350.0" text="Check-Out">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
+      <AnchorPane layoutX="464.0" layoutY="57.0" prefHeight="482.0" prefWidth="451.0" style="-fx-background-color: Aquamarine;">
+         <children>
+            <Label layoutX="134.0" layoutY="5.0" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: white;" text="            Register Personal Info" />
+            <Pane layoutX="32.0" layoutY="46.0" prefHeight="344.0" prefWidth="398.0">
+               <children>
+                  <TextField layoutX="22.0" layoutY="22.0" prefHeight="43.0" prefWidth="351.0" promptText="Name" />
+                  <TextField layoutX="22.0" layoutY="101.0" prefHeight="43.0" prefWidth="351.0" promptText="Phone" />
+                  <TextField layoutX="22.0" layoutY="185.0" prefHeight="43.0" prefWidth="351.0" promptText="Email" />
+                  <Button layoutX="22.0" layoutY="273.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="80.0" text="Save">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="138.0" layoutY="273.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" text="Delete">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="276.0" layoutY="273.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="95.0" text="Cancel">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+      <Label layoutX="3.0" layoutY="-2.0" prefHeight="60.0" prefWidth="910.0" style="-fx-background-color: LightGreen;" text="                                                                       WELCOME TO EKA HOTEL " textFill="#ea6ab1" wrapText="true">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="207.0" layoutY="553.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: Aquamarine;" text="Back" />
+      <Button layoutX="631.0" layoutY="553.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: Aquamarine;" text="Close" />
    </children>
-</StackPane>
+</AnchorPane>
