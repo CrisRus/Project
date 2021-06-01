@@ -4,6 +4,9 @@ import DatabaseConnection.UserQueries;
 import Model.Guest;
 
 import Model.SceneSwitcher;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +36,11 @@ public class GuestController implements Initializable {
     public ListView<String> listView;
     @FXML
     private StackPane stackpane;
+    @FXML
+    private ComboBox comb;
+
+    String s = comb.getSelectionModel().getSelectedItem().toString();
+
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,6 +48,9 @@ public class GuestController implements Initializable {
         String entrySql = "SELECT * FROM guest";
         fillGuests(entrySql);
         sceneSwitcher = SceneSwitcher.getInstance();
+
+        ObservableList<String> list= FXCollections.observableArrayList("Single","Family","AC","Non AC");
+        comb.setItems(list);
 
     }
 

@@ -13,7 +13,8 @@ public class Room  {
     public String roomPrice;
     public String roomStatus;
 
-
+    protected enum Status { AVAILABLE, BOOKED, OCCUPIED };
+    private  Status status;
 
 
 
@@ -38,6 +39,18 @@ public class Room  {
     }
     public String getRoomStatus(){
         return roomStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomCode='" + roomCode + '\'' +
+                ", roomType='" + roomType + '\'' +
+                ", roomPhone='" + roomPhone + '\'' +
+                ", roomPrice='" + roomPrice + '\'' +
+                ", roomStatus='" + roomStatus + '\'' +
+                ", status=" + status +
+                '}';
     }
 }
 
