@@ -42,7 +42,7 @@ public class AdminController implements Initializable {
 
     @FXML
     public void toGuests(ActionEvent ae) {
-        sceneSwitcher.changeScene(ae, "../View/guest.fxml");
+        sceneSwitcher.changeScene(ae, "../View/guestInfo.fxml");
     }
 
 
