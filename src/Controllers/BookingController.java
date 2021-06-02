@@ -109,7 +109,7 @@ public class BookingController implements Initializable {
          */
     }
     @FXML
-    public void bookRoom(ActionEvent ae) throws SQLException {
+    public void bookRoom(ActionEvent ae) throws Exception {
         if(firstName.getText().isEmpty() || lastName.getText().isEmpty() || email.getText().isEmpty() || address.getText().isEmpty() ||
         phone.getText().isEmpty() || roomType.getText().isEmpty() || roomCode.getText().isEmpty() ||
         services.getText().isEmpty()  ) {
@@ -123,7 +123,7 @@ public class BookingController implements Initializable {
         else {
 
                 int result = 0;
-                String sql = "INSERT INTO guestBooking (firstName,lastName,email,address,phone,roomType,roomCode,startDate,endDate,services) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO cusBooking (firstName,lastName,email,address,phone,roomType,roomCode,startDate,endDate,services) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 
 

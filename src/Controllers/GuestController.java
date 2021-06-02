@@ -3,6 +3,7 @@ package Controllers;
 import DatabaseConnection.UserQueries;
 import Model.Guest;
 
+import Model.Room;
 import Model.SceneSwitcher;
 
 import javafx.collections.FXCollections;
@@ -40,6 +41,7 @@ public class GuestController implements Initializable {
     private StackPane stackpane;
     @FXML
     private ComboBox comb;
+
 
     String s = comb.getSelectionModel().getSelectedItem().toString();
 
@@ -161,15 +163,6 @@ public class GuestController implements Initializable {
 
         fillGuests("SELECT * FROM Guest WHERE ");
     }
-
-   // public void Select(ActionEvent actionEvent) {
-  //  }
-    // @FXML
-    /*private void unavailable(ActionEvent event) {
-
-        fillGuests("SELECT * FROM Guest ");
-    }*/
-
 
 }
 

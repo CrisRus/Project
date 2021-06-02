@@ -22,7 +22,7 @@ public class Room  {
         this.roomCode = roomCode;
         this.roomType = roomType;
         this.roomPhone = roomPhone;
-        this.roomPhone = roomPrice;
+        this.roomPrice = roomPrice;
         this.roomStatus = roomStatus;
     }
     public String getRoomCode(){
