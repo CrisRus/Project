@@ -1,17 +1,16 @@
 package Controllers;
 
 import Model.SceneSwitcher;
+import com.sun.javafx.charts.Legend;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
+
+import javafx.fxml.Initializable;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -45,5 +44,41 @@ public class AdminController implements Initializable {
         sceneSwitcher.changeScene(ae, "../View/guestInfo.fxml");
     }
 
+    @FXML
+    private ListView<String> listOfNames;
 
+    @FXML
+    private TextField guestName;
+
+
+
+
+
+    public void searchByGuestName(ActionEvent actionEvent) {
+    }
+
+    public void back(ActionEvent actionEvent) {
+    }
+
+
+    @FXML
+    public void addName(MouseEvent mouseEvent) {
+        listOfNames.getItems().add(guestName.getText());
+    }
+
+    @FXML
+    public void removeName(MouseEvent mouseEvent) {
+        int selectedID= listOfNames.getSelectionModel().getSelectedIndex();
+        listOfNames.getItems().remove(selectedID);
+    }
+
+
+    @FXML
+    public void updateList(MouseEvent mouseEvent) {
+
+    }
+
+    @FXML
+    public void clearList(MouseEvent mouseEvent) {
+    }
 }

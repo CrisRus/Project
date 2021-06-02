@@ -9,7 +9,10 @@
    <children>
       <AnchorPane layoutX="3.0" layoutY="57.0" prefHeight="482.0" prefWidth="457.0" style="-fx-background-color: Aquamarine;">
          <children>
-            <Label layoutX="101.0" layoutY="6.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: white; -fx-border-width: 2;" text="               Room Information" />
+            <Label layoutX="101.0" layoutY="6.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: white; -fx-border-width: 2;" text="               Room Information">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <Label layoutX="24.0" layoutY="75.0" text="Room No">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -46,11 +49,18 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
+            <Button layoutX="357.0" layoutY="404.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="80.0" text="ADD">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="464.0" layoutY="57.0" prefHeight="482.0" prefWidth="451.0" style="-fx-background-color: Aquamarine;">
          <children>
-            <Label layoutX="134.0" layoutY="5.0" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: white;" text="            Register Personal Info" />
+            <Label layoutX="134.0" layoutY="5.0" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: white;" text="            Register Personal Info">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <Pane layoutX="32.0" layoutY="46.0" prefHeight="344.0" prefWidth="398.0">
                <children>
                   <TextField layoutX="22.0" layoutY="22.0" prefHeight="43.0" prefWidth="351.0" promptText="Name" />
@@ -77,10 +87,16 @@
          </children></AnchorPane>
       <Label layoutX="3.0" layoutY="-2.0" prefHeight="60.0" prefWidth="910.0" style="-fx-background-color: LightGreen;" text="                                                                       WELCOME TO EKA HOTEL " textFill="#ea6ab1" wrapText="true">
          <font>
-            <Font name="System Italic" size="18.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="207.0" layoutY="553.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: Aquamarine;" text="Back" />
-      <Button layoutX="631.0" layoutY="553.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: Aquamarine;" text="Close" />
+      <Button layoutX="207.0" layoutY="553.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: Aquamarine;" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="631.0" layoutY="553.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: Aquamarine;" text="Close">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>
