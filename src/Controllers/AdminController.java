@@ -1,7 +1,7 @@
 package Controllers;
 
 import Model.SceneSwitcher;
-import com.sun.javafx.charts.Legend;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -73,12 +73,5 @@ public class AdminController implements Initializable {
     }
 
 
-    @FXML
-    public void updateList(MouseEvent mouseEvent) {
 
-    }
-
-    @FXML
-    public void clearList(MouseEvent mouseEvent) {
-    }
 }
