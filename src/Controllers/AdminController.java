@@ -3,13 +3,11 @@ package Controllers;
 import Model.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,5 +43,30 @@ public class AdminController implements Initializable {
         sceneSwitcher.changeScene(ae, "../View/guestInfo.fxml");
     }
 
+   @FXML
+    private ListView<String> listOfNames;
+    @FXML
+    private TextField guestName;
 
-}
+    @FXML
+    public void addName(MouseEvent mouseEvent) {
+        listOfNames.getItems().add(guestName.getText());
+    }
+
+    @FXML
+    public void removeName(MouseEvent mouseEvent) {
+        int selectedID = listOfNames.getSelectionModel().getSelectedIndex();
+        listOfNames.getItems().remove(selectedID);
+    }
+
+
+
+    public void searchByGuestName(ActionEvent actionEvent) {
+
+    }
+    @FXML
+    public void backButton(javafx.event.ActionEvent ae) throws IOException {
+            sceneSwitcher.changeScene(ae,"../View/admin.fxml" );
+        }
+    }
+

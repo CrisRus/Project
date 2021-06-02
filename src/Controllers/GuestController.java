@@ -162,8 +162,8 @@ public class GuestController implements Initializable {
         fillGuests("SELECT * FROM Guest WHERE ");
     }
 
-    public void Select(ActionEvent actionEvent) {
-    }
+   // public void Select(ActionEvent actionEvent) {
+  //  }
     // @FXML
     /*private void unavailable(ActionEvent event) {
 
