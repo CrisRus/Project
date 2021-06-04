@@ -7,13 +7,11 @@ import Model.Room;
 import Model.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -77,8 +75,11 @@ public class RoomController implements Initializable {
         sceneSwitcher.changeScene(ae,"../View/admin.fxml" );
     }
 
-    @FXML
-    private void close(ActionEvent event) throws IOException {
+
+
+
+
+
       /*  DialogLayout dialogLayout = new DialogLayout();
         dialogLayout.setHeading(new Text("Close"));
         dialogLayout.setBody(new Text("Do You want to exit !"));
@@ -107,7 +108,7 @@ public class RoomController implements Initializable {
     }
 
        */
-    }
+
 
     @FXML
     private void searchByRoomCode(ActionEvent ae) {
@@ -175,6 +176,13 @@ public class RoomController implements Initializable {
         fillRooms("SELECT * FROM room WHERE roomStatus = 'unavailable' ");
     }
 
+
+    @FXML
+    private void close(javafx.event.ActionEvent ae) throws IOException {
+        sceneSwitcher.changeScene(ae,"../View/login.fxml" );
+        //System.exit(1);
+
+    }
 
 }
 

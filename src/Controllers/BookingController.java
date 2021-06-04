@@ -76,37 +76,14 @@ public class BookingController implements Initializable {
     public void backButton(javafx.event.ActionEvent ae) throws IOException {
         sceneSwitcher.changeScene(ae,"../View/admin.fxml" );
     }
+
     @FXML
     private void close(ActionEvent ae) throws IOException {
-        /*
-        DialogLayout dialogLayout=new JFXDialogLayout();
-        dialogLayout.setHeading(new Text("Close"));
-        dialogLayout.setBody(new Text("Do You want to exit !"));
 
-        JFXButton ok=new JFXButton("Ok");
-        JFXButton Cancel=new JFXButton("Cancel");
+            sceneSwitcher.changeScene(ae,"../View/login.fxml" );
+            //System.exit(1);
 
-        JFXDialog dialog=new JFXDialog(stackpane, dialogLayout, JFXDialog.DialogTransition.CENTER);
 
-        ok.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(javafx.event.ActionEvent event) {
-                System.exit(0);
-            }
-        });
-
-        Cancel.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                dialog.close();
-            }
-        });
-
-        dialogLayout.setActions(ok,Cancel);
-        dialog.show();
-    }
-
-         */
     }
     @FXML
     public void bookRoom(ActionEvent ae) throws Exception {
