@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminController">
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GuestController">
     <children>
-        <AnchorPane id="AnchorPane" prefHeight="569.0" prefWidth="1366.0" style="-fx-background-image:url(img/person-woman-hotel-laptop.jpg)">
+        <AnchorPane id="AnchorPane" prefHeight="412.0" prefWidth="1366.0" style="-fx-background-image:url(img/person-woman-hotel-laptop.jpg)">
             <children>
                 <Pane layoutX="29.0" layoutY="22.0" opacity="0.7" prefHeight="700.0" prefWidth="421.0" style="-fx-background-color: LightCyan; -fx-background-radius: 6 px;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="930.0" AnchorPane.topAnchor="15.0">
                     <children>
@@ -30,41 +36,32 @@
                                 <Font name="System Bold" size="12.0" />
                             </font>
                         </Label>
-                          <Button layoutX="73.0" layoutY="247.0" onAction="#backButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: lightgreen;" text="Back" textFill="#2c2828">
-                              <font>
-                                  <Font size="14.0" />
-                              </font>
-                          </Button>
-                          <Button layoutX="243.0" layoutY="247.0" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: lightgreen;" text="Close" textFill="#211f1f">
-                              <font>
-                                  <Font size="14.0" />
-                              </font>
-                          </Button>
+                        <Button layoutX="156.0" layoutY="247.0" onAction="#back" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: lightgreen;" text="Back" textFill="#2c2828">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
                     </children>
                 </Pane>
-                <ListView fx:id="listView" layoutX="436.0" prefHeight="509.0" prefWidth="731.0" style="-fx-background-color: LightGreen;" />
+                <ListView fx:id="listView" layoutX="436.0" prefHeight="509.0" prefWidth="704.0" style="-fx-background-color: LightGreen;" />
                 <Pane layoutX="453.0" layoutY="8.0" prefHeight="494.0" prefWidth="696.0">
-               <children>
-                  <VBox layoutX="11.0" layoutY="4.0" prefHeight="493.0" prefWidth="675.0" style="-fx-background-color: white;">
-                     <children>
-                        <Label prefHeight="57.0" prefWidth="675.0" style="-fx-background-color: palegreen;" text="                                                                                                  Guest List">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <ListView fx:id="listOfNames" prefHeight="354.0" prefWidth="675.0" />
-                        <TextField fx:id="guestName" promptText="guest name" />
-                        <Button mnemonicParsing="false" onMouseClicked="#addName" prefHeight="26.0" prefWidth="677.0" style="-fx-background-color: lightblue;" text="ADD">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font></Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#removeName" prefHeight="26.0" prefWidth="682.0" style="-fx-background-color: lightskyblue;" text="REMOVE">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font></Button>
-                     </children>
-                  </VBox>
-               </children></Pane>
+                    <children>
+                        <VBox layoutX="11.0" layoutY="4.0" prefHeight="245.0" prefWidth="675.0" style="-fx-background-color: white;">
+                            <children>
+                                <Label prefHeight="57.0" prefWidth="675.0" style="-fx-background-color: palegreen;" text="                                                                                                  Guest List">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <ListView fx:id="listOfNames" prefHeight="134.0" prefWidth="675.0" />
+                                <TextField fx:id="guestName" promptText="guest name" />
+                                <Button mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="674.0" style="-fx-background-color: lightskyblue;" text="REMOVE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font></Button>
+                            </children>
+                        </VBox>
+                    </children></Pane>
             </children>
         </AnchorPane>
     </children>

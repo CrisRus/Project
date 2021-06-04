@@ -26,40 +26,41 @@ import java.util.ResourceBundle;
 
 public class GuestController implements Initializable {
     UserQueries ub;
+
+    String name;
     @FXML
-    javafx.scene.control.TextField search;
+    javafx.scene.control.TextField search,guestName;
     private SceneSwitcher sceneSwitcher;
     @FXML
-    public void toGuests(ActionEvent ae) {
+    public void toGuests(ActionEvent ae) throws IOException {
         sceneSwitcher.changeScene(ae, "../View/guest.fxml");
     }
 
 
     @FXML
-    public ListView<String> listView;
+    public ListView<String> listOfNames;
     @FXML
     private StackPane stackpane;
     @FXML
     private ComboBox comb;
 
 
-    String s = comb.getSelectionModel().getSelectedItem().toString();
+
 
 
 
     public void initialize(URL location, ResourceBundle resources) {
         ub = new UserQueries();
-        String entrySql = "SELECT * FROM guest";
+        String entrySql = "SELECT * FROM cusbooking";
         fillGuests(entrySql);
         sceneSwitcher = SceneSwitcher.getInstance();
 
-        ObservableList<String> list= FXCollections.observableArrayList("Single","Family","AC","Non AC");
-        comb.setItems(list);
+
 
     }
 
     public void fillGuests(String sql) {
-        listView.getItems().clear();
+        listOfNames.getItems().clear();
 
 
 
@@ -68,22 +69,16 @@ public class GuestController implements Initializable {
 
 
             ResultSet rs = preparedStatement.executeQuery();
-            // Guest(String firstName, String lastName, String email, String address, String phone, String roomType, String roomCode,
-            //                 String startDate, String endDate, String services
+
             while (rs.next()) {
 
-                Main.guestobject = new Guest(rs.getString("Name"), rs.getString("lastName"),
-                        rs.getString("email"), rs.getString("address"), rs.getString("phone")
-                        , rs.getString("roomType"), rs.getString("roomCode"), rs.getString("startDate")
-                        ,  rs.getString("endDate")
-                        ,  rs.getString("services")
-                );
-                listView.getItems().addAll(Main.guestobject.getRoomCode() +
-                        "                                -             " +
-                        Main.guestobject.getFirstName() + "                                     -  " +
-                        Main.guestobject.getLastName() +
-                        "                         -  " + Main.guestobject.getEmail() +
-                        "                         -  " + Main.guestobject.getRoomCode() + "                                   -  ");
+
+
+                listOfNames.getItems().addAll(rs.getString("firstname")+
+                        "-         " + rs.getString("startdate") + "-         " +
+                        rs.getString("enddate") +
+                        "   -           " + rs.getString("roomcode") +
+                        " -           ");
 
 
             }
@@ -97,74 +92,60 @@ public class GuestController implements Initializable {
         sceneSwitcher.changeScene(ae,"../View/admin.fxml" );
     }
 
-    @FXML
-    private void close(ActionEvent event) throws IOException {
 
-    }
 
     @FXML
     private void searchByGuestName(ActionEvent ae) {
         if (search.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("please enter the guest code");
-            alert.setContentText("enter the correct guest code and search");
+            alert.setTitle("please enter the first name of the guest");
+            alert.setContentText("enter guest firstname");
             alert.show();
         } else {
 
             try {
-                // fillGuests("SELECT * FROM guest WHERE guestCode ='" + search.getText().toString().trim() + "'");
-                fillGuests("SELECT * FROM guest WHERE 1" );
+                fillGuests("SELECT * FROM cusbooking WHERE firstname ='" + search.getText().toString().trim() + "'");
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("please enter a valid guest code");
-                alert.setContentText("enter the correct guest code and search");
+                alert.setTitle("please enter a valid firstname");
+                alert.setContentText("enter valid firstname please");
+                alert.show();
+            }
+        }
+    }
+    @FXML
+    private void Delete(ActionEvent ae) {
+        if (guestName.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("please enter the room code");
+            alert.setContentText("enter the correct room code and search");
+            alert.show();
+        } else {
+
+            try {
+                fillGuests("DELETE FROM cusbooking  WHERE firstname ='" + guestName.getText().toString().trim() + "'");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("A deletion was made");
+                alert.setContentText("Guest" +guestName.getText() +"    was deleted");
+                alert.show();
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("There is no guest with the above name");
+                alert.setContentText("please enter correct guest firstname");
                 alert.show();
             }
         }
 
 
     }
-    @FXML
-    private void makeUnAvailable(ActionEvent ae) {
 
-        String text=search.getText().toString().trim();
-        int res=0;
-        String sql="UPDATE guest SET guestStatus=? WHERE guestCode=?";
-        try {
-            PreparedStatement ps=(PreparedStatement)ub.connection.prepareStatement(sql);
-            ps.setString(1, "unavailable");
-            ps.setString(2, text);
-
-            res=ps.executeUpdate();
-
-
-
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();        }
-
-        if(res>0){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Data update");
-            alert.setHeaderText("Information Dialog");
-            alert.setContentText("Record updated successfully!");
-            alert.showAndWait();
-            fillGuests("SELECT * FROM `guest` WHERE 1");
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Data update");
-            alert.setHeaderText("Information Dialog");
-            alert.setContentText("Error!");
-            alert.showAndWait();
-        }
-    }
-    @FXML
-    private void search(ActionEvent event) {
-
-        fillGuests("SELECT * FROM Guest WHERE ");
-    }
 
 }
+
+
+
+
+
 
 
 
